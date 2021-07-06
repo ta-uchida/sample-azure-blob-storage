@@ -1,14 +1,12 @@
-class MyClass {
-  readonly #msg: string;
+import dotenv from 'dotenv';
+dotenv.config();
 
-  constructor() {
-    this.#msg = 'Hello Node.js w/ TypeScript!';
+import { GetContainerNames } from "./sample/getContainerNames";
+
+(async function main() {
+  let i = 1;
+  let containers = new GetContainerNames().get();
+  for await (const container of containers) {
+    console.log(`Container ${i++}: ${container.name}`);
   }
-
-  output() {
-    console.log(this.#msg);
-  }
-}
-
-const myClass = new MyClass();
-myClass.output();
+})();
