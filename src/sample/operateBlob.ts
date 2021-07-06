@@ -3,7 +3,7 @@ import { blobService } from "../blobService";
 
 export class OperateBlob {
   readonly #service: BlobServiceClient;
-  readonly #containerName = process.env.AZURE_BLOB_CONTAINER_NAME || '';
+  readonly #containerName: string;
   readonly #containerClient: ContainerClient;
 
   constructor() {
